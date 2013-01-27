@@ -65,6 +65,22 @@ void File::Write(const String& string)
 	}
 }
 
+void File::Read(char* buffer, size_t length)
+{
+	assert(buffer);
+
+	size_t size = fread(buffer, sizeof(char), length, m_handle);
+
+	assert(size < length);
+}
+
+const char File::ReadChar()
+{
+	char character = fgetc(m_handle);
+
+	return character;
+}
+
 void File::GetFileSize()
 {
 	if (m_handle) {

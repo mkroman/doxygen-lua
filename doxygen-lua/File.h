@@ -26,7 +26,12 @@ public:
 
 	bool Open(const String& path, FileMode mode = FILE_READ);
 	bool Close();
+
 	void Write(const String& string);
+	void Read(char* buffer, size_t length);
+
+	const char ReadChar();
+	const String ReadFileID();
 
 private:
 	void GetFileSize();
